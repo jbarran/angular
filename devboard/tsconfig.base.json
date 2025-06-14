@@ -1,0 +1,21 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": false,
+    "target": "es2022",
+    "module": "preserve",
+    "lib": ["es2020", "dom"],
+    "types": [],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@angular-devboard/admin": ["libs/admin/src/index.ts"],
+      "@angular-devboard/auth": ["libs/auth/src/index.ts"],
+      "@angular-devboard/metrics": ["libs/metrics/src/index.ts"],
+      "@angular-devboard/projects": ["libs/projects/src/index.ts"],
+      "@angular-devboard/settings": ["libs/settings/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
