@@ -1,14 +1,10 @@
 import { Injectable, computed, signal } from '@angular/core';
-import { Project } from '../../../shared/models/src/lib/project.model';
+import { Project } from '@devboard/models';
+import {MOCK_PROJECTS} from "./mock-projects";
 
 @Injectable({ providedIn: 'root' })
 export class ProjectsService {
-    private _projects = signal<Project[]>([
-        { id: '1', name: 'Portfolio Website', status: 'active' },
-        { id: '2', name: 'Angular DevBoard', status: 'active' },
-        { id: '3', name: 'Archived Test App', status: 'archived' },
-    ]);
-
+    private _projects = signal<Project[]>(MOCK_PROJECTS);
     readonly projects = this._projects.asReadonly();
 
     readonly activeProjects = computed(() =>
