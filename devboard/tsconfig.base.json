@@ -10,11 +10,14 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-devboard/admin": ["libs/admin/src/index.ts"],
-      "@angular-devboard/auth": ["libs/auth/src/index.ts"],
-      "@angular-devboard/metrics": ["libs/metrics/src/index.ts"],
-      "@angular-devboard/projects": ["libs/projects/src/index.ts"],
-      "@angular-devboard/settings": ["libs/settings/src/index.ts"]
+      "@devboard/admin": ["libs/admin/src/index.ts"],
+      "@devboard/auth": ["libs/auth/src/index.ts"],
+      "@devboard/metrics": ["libs/metrics/src/index.ts"],
+      "@devboard/projects": ["libs/projects/src/index.ts"],
+      "@devboard/settings": ["libs/settings/src/index.ts"],
+      "@devboard/models": ["libs/shared/models/src/index.ts"],
+      "@devboard/ui": ["libs/shared/ui/src/index.ts"],
+      "@devboard/utils": ["libs/shared/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
