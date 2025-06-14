@@ -9,4 +9,4 @@ bootstrapApplication(App, {
         ...appConfig.providers,
         provideZonelessChangeDetection(),
     ],
-}).catch((err) => console.error(err));
+}).catch(console.error);
