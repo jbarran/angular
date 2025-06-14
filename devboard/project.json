@@ -22,7 +22,12 @@
             "input": "public"
           }
         ],
-        "styles": ["./src/styles.scss"]
+        "styles": ["./src/styles.scss"],
+        "server": "src/main.server.ts",
+        "ssr": {
+          "entry": "src/server.ts"
+        },
+        "outputMode": "server"
       },
       "configurations": {
         "production": {
@@ -57,6 +62,38 @@
         },
         "development": {
           "buildTarget": "devboard:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "server": {
+      "executor": "@angular/build:server",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/devboard-server",
+        "main": "src/main.server.ts",
+        "tsConfig": "tsconfig.server.json"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media"
+        }
+      }
+    },
+    "serve-ssr": {
+      "executor": "@angular/build:ssr-dev-server",
+      "options": {
+        "browserTarget": "devboard:build:development",
+        "serverTarget": "devboard:server:development"
+      },
+      "configurations": {
+        "development": {
+          "browserTarget": "devboard:build:development",
+          "serverTarget": "devboard:server:development"
+        },
+        "production": {
+          "browserTarget": "devboard:build:production",
+          "serverTarget": "devboard:server:production"
         }
       },
       "defaultConfiguration": "development"

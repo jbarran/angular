@@ -1,10 +1,28 @@
-<h2>Projects</h2>
-
+<h2>Active Projects</h2>
 <ul>
-    @for (project of projects(); track project.id) {
-        <li>{{ project.name }}</li>
+    @for (project of active(); track project.id) {
+        <li>
+            {{ project.name }}
+            <button (click)="archive(project.id)">Archive</button>
+        </li>
     }
     @empty {
-        <li>No projects found.</li>
+        <li>No active projects</li>
     }
 </ul>
+
+<button (click)="toggleArchived()">
+    {{ showArchived ? 'Hide' : 'Show' }} Archived Projects
+</button>
+
+@if (showArchived) {
+    <h2>Archived Projects</h2>
+    <ul>
+        @for (project of archived(); track project.id) {
+            <li>{{ project.name }}</li>
+        }
+        @empty {
+            <li>No archived projects</li>
+        }
+    </ul>
+}

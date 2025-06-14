@@ -10,5 +10,17 @@ import {ProjectsService} from "./projects.service";
 })
 export class ProjectsComponent {
   private svc = inject(ProjectsService);
+  readonly active = this.svc.activeProjects;
+  readonly archived = this.svc.archivedProjects;
   readonly projects = this.svc.projects;
+
+  showArchived = false;
+
+  toggleArchived(): void {
+    this.showArchived = !this.showArchived;
+  }
+
+  archive(id: string): void {
+    this.svc.archive(id);
+  }
 }
