@@ -1,28 +1,35 @@
 <h2>Active Projects</h2>
-<ul>
+
+<mat-list>
     @for (project of active(); track project.id) {
-        <li>
-            {{ project.name }}
-            <button (click)="archive(project.id)">Archive</button>
-        </li>
+        <mat-list-item>
+            <div mat-line>{{ project.name }}</div>
+            <button mat-button color="warn" (click)="archive(project.id)">Archive</button>
+        </mat-list-item>
     }
     @empty {
-        <li>No active projects</li>
+        <mat-list-item>
+            <div mat-line>No active projects</div>
+        </mat-list-item>
     }
-</ul>
+</mat-list>
 
-<button (click)="toggleArchived()">
+<button mat-raised-button (click)="toggleArchived()">
     {{ showArchived ? 'Hide' : 'Show' }} Archived Projects
 </button>
 
 @if (showArchived) {
     <h2>Archived Projects</h2>
-    <ul>
+    <mat-list>
         @for (project of archived(); track project.id) {
-            <li>{{ project.name }}</li>
+            <mat-list-item>
+                <div mat-line>{{ project.name }}</div>
+            </mat-list-item>
         }
         @empty {
-            <li>No archived projects</li>
+            <mat-list-item>
+                <div mat-line>No archived projects</div>
+            </mat-list-item>
         }
-    </ul>
+    </mat-list>
 }
